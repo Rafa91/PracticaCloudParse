@@ -7,13 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		052BC3911AF2A26A002A947C /* RNOAddNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 052BC38F1AF2A26A002A947C /* RNOAddNewViewController.m */; };
+		052BC3921AF2A26A002A947C /* RNOAddNewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 052BC3901AF2A26A002A947C /* RNOAddNewViewController.xib */; };
+		052BC3961AF37CFC002A947C /* RNOPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 052BC3941AF37CFC002A947C /* RNOPhotoViewController.m */; };
+		052BC3971AF37CFC002A947C /* RNOPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 052BC3951AF37CFC002A947C /* RNOPhotoViewController.xib */; };
+		052BC39A1AF39766002A947C /* RNOMyNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 052BC3991AF39766002A947C /* RNOMyNewsViewController.m */; };
+		0579BC9E1AF2781B00B90276 /* noImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 0579BC9D1AF2781B00B90276 /* noImage.png */; };
+		0579BCA11AF27E4100B90276 /* robb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0579BCA01AF27E4100B90276 /* robb.jpg */; };
+		0579BCA31AF27E4C00B90276 /* ned.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0579BCA21AF27E4C00B90276 /* ned.jpg */; };
+		0579BCA51AF27E5700B90276 /* martell.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0579BCA41AF27E5700B90276 /* martell.jpg */; };
+		0579BCA71AF27E6400B90276 /* joffrey.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0579BCA61AF27E6400B90276 /* joffrey.jpg */; };
+		0579BCA91AF27E6E00B90276 /* jaime.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0579BCA81AF27E6E00B90276 /* jaime.jpg */; };
+		0579BCAB1AF27E7A00B90276 /* caminante.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0579BCAA1AF27E7A00B90276 /* caminante.jpg */; };
 		05E9C5FE1AF21C3C0073B5A6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E9C5FD1AF21C3C0073B5A6 /* main.m */; };
 		05E9C6011AF21C3C0073B5A6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E9C6001AF21C3C0073B5A6 /* AppDelegate.m */; };
-		05E9C6041AF21C3C0073B5A6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E9C6031AF21C3C0073B5A6 /* ViewController.m */; };
-		05E9C6071AF21C3C0073B5A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05E9C6051AF21C3C0073B5A6 /* Main.storyboard */; };
 		05E9C6091AF21C3C0073B5A6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05E9C6081AF21C3C0073B5A6 /* Images.xcassets */; };
 		05E9C60C1AF21C3C0073B5A6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05E9C60A1AF21C3C0073B5A6 /* LaunchScreen.xib */; };
 		05E9C6181AF21C3C0073B5A6 /* PracticaCloudParseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E9C6171AF21C3C0073B5A6 /* PracticaCloudParseTests.m */; };
+		05E9C6251AF2303C0073B5A6 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 05E9C6231AF2303C0073B5A6 /* Model.xcdatamodeld */; };
+		05E9C62C1AF235310073B5A6 /* RNOLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E9C6271AF235310073B5A6 /* RNOLocation.m */; };
+		05E9C62D1AF235310073B5A6 /* RNONews.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E9C6291AF235310073B5A6 /* RNONews.m */; };
+		05E9C62E1AF235310073B5A6 /* RNOPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E9C62B1AF235310073B5A6 /* RNOPhoto.m */; };
+		05E9C6351AF235450073B5A6 /* _RNOLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E9C6301AF235450073B5A6 /* _RNOLocation.m */; };
+		05E9C6361AF235450073B5A6 /* _RNONews.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E9C6321AF235450073B5A6 /* _RNONews.m */; };
+		05E9C6371AF235450073B5A6 /* _RNOPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E9C6341AF235450073B5A6 /* _RNOPhoto.m */; };
+		05E9C63B1AF23AD90073B5A6 /* AGTCoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E9C63A1AF23AD90073B5A6 /* AGTCoreDataTableViewController.m */; };
+		05E9C63E1AF23AE30073B5A6 /* AGTCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E9C63D1AF23AE30073B5A6 /* AGTCoreDataStack.m */; };
+		05E9C6411AF23D1A0073B5A6 /* RNONewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E9C6401AF23D1A0073B5A6 /* RNONewsViewController.m */; };
+		05E9C6481AF23FF80073B5A6 /* RNONewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E9C6461AF23FF80073B5A6 /* RNONewViewController.m */; };
+		05E9C6491AF23FF80073B5A6 /* RNONewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05E9C6471AF23FF80073B5A6 /* RNONewViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,19 +49,53 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		052BC38E1AF2A26A002A947C /* RNOAddNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNOAddNewViewController.h; sourceTree = "<group>"; };
+		052BC38F1AF2A26A002A947C /* RNOAddNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNOAddNewViewController.m; sourceTree = "<group>"; };
+		052BC3901AF2A26A002A947C /* RNOAddNewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RNOAddNewViewController.xib; sourceTree = "<group>"; };
+		052BC3931AF37CFC002A947C /* RNOPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNOPhotoViewController.h; sourceTree = "<group>"; };
+		052BC3941AF37CFC002A947C /* RNOPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNOPhotoViewController.m; sourceTree = "<group>"; };
+		052BC3951AF37CFC002A947C /* RNOPhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RNOPhotoViewController.xib; sourceTree = "<group>"; };
+		052BC3981AF39766002A947C /* RNOMyNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNOMyNewsViewController.h; sourceTree = "<group>"; };
+		052BC3991AF39766002A947C /* RNOMyNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNOMyNewsViewController.m; sourceTree = "<group>"; };
+		0579BC9D1AF2781B00B90276 /* noImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noImage.png; sourceTree = "<group>"; };
+		0579BCA01AF27E4100B90276 /* robb.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = robb.jpg; sourceTree = "<group>"; };
+		0579BCA21AF27E4C00B90276 /* ned.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ned.jpg; sourceTree = "<group>"; };
+		0579BCA41AF27E5700B90276 /* martell.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = martell.jpg; sourceTree = "<group>"; };
+		0579BCA61AF27E6400B90276 /* joffrey.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = joffrey.jpg; sourceTree = "<group>"; };
+		0579BCA81AF27E6E00B90276 /* jaime.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = jaime.jpg; sourceTree = "<group>"; };
+		0579BCAA1AF27E7A00B90276 /* caminante.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = caminante.jpg; sourceTree = "<group>"; };
 		05E9C5F81AF21C3C0073B5A6 /* PracticaCloudParse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticaCloudParse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05E9C5FC1AF21C3C0073B5A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05E9C5FD1AF21C3C0073B5A6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		05E9C5FF1AF21C3C0073B5A6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		05E9C6001AF21C3C0073B5A6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		05E9C6021AF21C3C0073B5A6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		05E9C6031AF21C3C0073B5A6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		05E9C6061AF21C3C0073B5A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		05E9C6081AF21C3C0073B5A6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		05E9C60B1AF21C3C0073B5A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		05E9C6111AF21C3C0073B5A6 /* PracticaCloudParseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PracticaCloudParseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		05E9C6161AF21C3C0073B5A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05E9C6171AF21C3C0073B5A6 /* PracticaCloudParseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PracticaCloudParseTests.m; sourceTree = "<group>"; };
+		05E9C6241AF2303C0073B5A6 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		05E9C6261AF235310073B5A6 /* RNOLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNOLocation.h; sourceTree = "<group>"; };
+		05E9C6271AF235310073B5A6 /* RNOLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNOLocation.m; sourceTree = "<group>"; };
+		05E9C6281AF235310073B5A6 /* RNONews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNONews.h; sourceTree = "<group>"; };
+		05E9C6291AF235310073B5A6 /* RNONews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNONews.m; sourceTree = "<group>"; };
+		05E9C62A1AF235310073B5A6 /* RNOPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNOPhoto.h; sourceTree = "<group>"; };
+		05E9C62B1AF235310073B5A6 /* RNOPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNOPhoto.m; sourceTree = "<group>"; };
+		05E9C62F1AF235450073B5A6 /* _RNOLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _RNOLocation.h; sourceTree = "<group>"; };
+		05E9C6301AF235450073B5A6 /* _RNOLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _RNOLocation.m; sourceTree = "<group>"; };
+		05E9C6311AF235450073B5A6 /* _RNONews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _RNONews.h; sourceTree = "<group>"; };
+		05E9C6321AF235450073B5A6 /* _RNONews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _RNONews.m; sourceTree = "<group>"; };
+		05E9C6331AF235450073B5A6 /* _RNOPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _RNOPhoto.h; sourceTree = "<group>"; };
+		05E9C6341AF235450073B5A6 /* _RNOPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _RNOPhoto.m; sourceTree = "<group>"; };
+		05E9C6391AF23AD90073B5A6 /* AGTCoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTCoreDataTableViewController.h; sourceTree = "<group>"; };
+		05E9C63A1AF23AD90073B5A6 /* AGTCoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTCoreDataTableViewController.m; sourceTree = "<group>"; };
+		05E9C63C1AF23AE20073B5A6 /* AGTCoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTCoreDataStack.h; sourceTree = "<group>"; };
+		05E9C63D1AF23AE30073B5A6 /* AGTCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTCoreDataStack.m; sourceTree = "<group>"; };
+		05E9C63F1AF23D1A0073B5A6 /* RNONewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNONewsViewController.h; sourceTree = "<group>"; };
+		05E9C6401AF23D1A0073B5A6 /* RNONewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNONewsViewController.m; sourceTree = "<group>"; };
+		05E9C6451AF23FF80073B5A6 /* RNONewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNONewViewController.h; sourceTree = "<group>"; };
+		05E9C6461AF23FF80073B5A6 /* RNONewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNONewViewController.m; sourceTree = "<group>"; };
+		05E9C6471AF23FF80073B5A6 /* RNONewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RNONewViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +116,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0579BC9F1AF27D9200B90276 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				0579BCAA1AF27E7A00B90276 /* caminante.jpg */,
+				0579BCA81AF27E6E00B90276 /* jaime.jpg */,
+				0579BCA61AF27E6400B90276 /* joffrey.jpg */,
+				0579BCA21AF27E4C00B90276 /* ned.jpg */,
+				0579BCA41AF27E5700B90276 /* martell.jpg */,
+				0579BCA01AF27E4100B90276 /* robb.jpg */,
+				0579BC9D1AF2781B00B90276 /* noImage.png */,
+			);
+			name = resources;
+			sourceTree = "<group>";
+		};
 		05E9C5EF1AF21C3C0073B5A6 = {
 			isa = PBXGroup;
 			children = (
@@ -81,11 +151,11 @@
 		05E9C5FA1AF21C3C0073B5A6 /* PracticaCloudParse */ = {
 			isa = PBXGroup;
 			children = (
+				0579BC9F1AF27D9200B90276 /* resources */,
+				05E9C6221AF22FB70073B5A6 /* Controllers */,
+				05E9C6211AF22FB20073B5A6 /* Model */,
 				05E9C5FF1AF21C3C0073B5A6 /* AppDelegate.h */,
 				05E9C6001AF21C3C0073B5A6 /* AppDelegate.m */,
-				05E9C6021AF21C3C0073B5A6 /* ViewController.h */,
-				05E9C6031AF21C3C0073B5A6 /* ViewController.m */,
-				05E9C6051AF21C3C0073B5A6 /* Main.storyboard */,
 				05E9C6081AF21C3C0073B5A6 /* Images.xcassets */,
 				05E9C60A1AF21C3C0073B5A6 /* LaunchScreen.xib */,
 				05E9C5FB1AF21C3C0073B5A6 /* Supporting Files */,
@@ -117,6 +187,58 @@
 				05E9C6161AF21C3C0073B5A6 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		05E9C6211AF22FB20073B5A6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				05E9C63C1AF23AE20073B5A6 /* AGTCoreDataStack.h */,
+				05E9C63D1AF23AE30073B5A6 /* AGTCoreDataStack.m */,
+				05E9C6381AF235490073B5A6 /* machine */,
+				05E9C6261AF235310073B5A6 /* RNOLocation.h */,
+				05E9C6271AF235310073B5A6 /* RNOLocation.m */,
+				05E9C6281AF235310073B5A6 /* RNONews.h */,
+				05E9C6291AF235310073B5A6 /* RNONews.m */,
+				05E9C62A1AF235310073B5A6 /* RNOPhoto.h */,
+				05E9C62B1AF235310073B5A6 /* RNOPhoto.m */,
+				05E9C6231AF2303C0073B5A6 /* Model.xcdatamodeld */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		05E9C6221AF22FB70073B5A6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				05E9C6391AF23AD90073B5A6 /* AGTCoreDataTableViewController.h */,
+				05E9C63A1AF23AD90073B5A6 /* AGTCoreDataTableViewController.m */,
+				05E9C63F1AF23D1A0073B5A6 /* RNONewsViewController.h */,
+				05E9C6401AF23D1A0073B5A6 /* RNONewsViewController.m */,
+				05E9C6451AF23FF80073B5A6 /* RNONewViewController.h */,
+				05E9C6461AF23FF80073B5A6 /* RNONewViewController.m */,
+				05E9C6471AF23FF80073B5A6 /* RNONewViewController.xib */,
+				052BC38E1AF2A26A002A947C /* RNOAddNewViewController.h */,
+				052BC38F1AF2A26A002A947C /* RNOAddNewViewController.m */,
+				052BC3901AF2A26A002A947C /* RNOAddNewViewController.xib */,
+				052BC3931AF37CFC002A947C /* RNOPhotoViewController.h */,
+				052BC3941AF37CFC002A947C /* RNOPhotoViewController.m */,
+				052BC3951AF37CFC002A947C /* RNOPhotoViewController.xib */,
+				052BC3981AF39766002A947C /* RNOMyNewsViewController.h */,
+				052BC3991AF39766002A947C /* RNOMyNewsViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		05E9C6381AF235490073B5A6 /* machine */ = {
+			isa = PBXGroup;
+			children = (
+				05E9C62F1AF235450073B5A6 /* _RNOLocation.h */,
+				05E9C6301AF235450073B5A6 /* _RNOLocation.m */,
+				05E9C6311AF235450073B5A6 /* _RNONews.h */,
+				05E9C6321AF235450073B5A6 /* _RNONews.m */,
+				05E9C6331AF235450073B5A6 /* _RNOPhoto.h */,
+				05E9C6341AF235450073B5A6 /* _RNOPhoto.m */,
+			);
+			name = machine;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +290,7 @@
 				TargetAttributes = {
 					05E9C5F71AF21C3C0073B5A6 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = VGW29G74QP;
 					};
 					05E9C6101AF21C3C0073B5A6 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -199,9 +322,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05E9C6071AF21C3C0073B5A6 /* Main.storyboard in Resources */,
+				0579BCA71AF27E6400B90276 /* joffrey.jpg in Resources */,
+				05E9C6491AF23FF80073B5A6 /* RNONewViewController.xib in Resources */,
+				0579BC9E1AF2781B00B90276 /* noImage.png in Resources */,
+				0579BCAB1AF27E7A00B90276 /* caminante.jpg in Resources */,
+				0579BCA51AF27E5700B90276 /* martell.jpg in Resources */,
 				05E9C60C1AF21C3C0073B5A6 /* LaunchScreen.xib in Resources */,
+				0579BCA91AF27E6E00B90276 /* jaime.jpg in Resources */,
+				0579BCA11AF27E4100B90276 /* robb.jpg in Resources */,
 				05E9C6091AF21C3C0073B5A6 /* Images.xcassets in Resources */,
+				0579BCA31AF27E4C00B90276 /* ned.jpg in Resources */,
+				052BC3921AF2A26A002A947C /* RNOAddNewViewController.xib in Resources */,
+				052BC3971AF37CFC002A947C /* RNOPhotoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,9 +351,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05E9C6041AF21C3C0073B5A6 /* ViewController.m in Sources */,
+				05E9C6351AF235450073B5A6 /* _RNOLocation.m in Sources */,
+				052BC3911AF2A26A002A947C /* RNOAddNewViewController.m in Sources */,
 				05E9C6011AF21C3C0073B5A6 /* AppDelegate.m in Sources */,
+				05E9C63B1AF23AD90073B5A6 /* AGTCoreDataTableViewController.m in Sources */,
+				05E9C62D1AF235310073B5A6 /* RNONews.m in Sources */,
+				052BC39A1AF39766002A947C /* RNOMyNewsViewController.m in Sources */,
+				05E9C6371AF235450073B5A6 /* _RNOPhoto.m in Sources */,
+				05E9C63E1AF23AE30073B5A6 /* AGTCoreDataStack.m in Sources */,
+				05E9C6361AF235450073B5A6 /* _RNONews.m in Sources */,
+				05E9C62E1AF235310073B5A6 /* RNOPhoto.m in Sources */,
 				05E9C5FE1AF21C3C0073B5A6 /* main.m in Sources */,
+				05E9C6251AF2303C0073B5A6 /* Model.xcdatamodeld in Sources */,
+				05E9C6481AF23FF80073B5A6 /* RNONewViewController.m in Sources */,
+				05E9C6411AF23D1A0073B5A6 /* RNONewsViewController.m in Sources */,
+				052BC3961AF37CFC002A947C /* RNOPhotoViewController.m in Sources */,
+				05E9C62C1AF235310073B5A6 /* RNOLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,14 +389,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		05E9C6051AF21C3C0073B5A6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				05E9C6061AF21C3C0073B5A6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		05E9C60A1AF21C3C0073B5A6 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -347,6 +484,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PracticaCloudParse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -357,6 +495,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PracticaCloudParse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -416,6 +555,7 @@
 				05E9C61D1AF21C3C0073B5A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		05E9C61E1AF21C3C0073B5A6 /* Build configuration list for PBXNativeTarget "PracticaCloudParseTests" */ = {
 			isa = XCConfigurationList;
@@ -424,8 +564,22 @@
 				05E9C6201AF21C3C0073B5A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		05E9C6231AF2303C0073B5A6 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				05E9C6241AF2303C0073B5A6 /* Model.xcdatamodel */,
+			);
+			currentVersion = 05E9C6241AF2303C0073B5A6 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 05E9C5F01AF21C3C0073B5A6 /* Project object */;
 }
