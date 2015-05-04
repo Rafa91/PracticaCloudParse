@@ -10,6 +10,8 @@
 #import "RNONews.h"
 #import "RNOPhoto.h"
 #import "RNOPhotoViewController.h"
+#import <Parse/Parse.h>
+#import "RNOKeys.h"
 
 @interface RNOAddNewViewController ()<UITextFieldDelegate>
 
@@ -72,6 +74,7 @@
 - (IBAction)publicar:(id)sender {
     
     [self.model setStateValue:2];
+    [self pushNewNoticeToParse:[self validateInputs]];
     
 }
 
@@ -83,7 +86,7 @@
     
 }
 
--(void) validateInputs{
+-(BOOL) validateInputs{
     
     if (![self.authorNewView.text isEqualToString:@""] && ![self.titleNewView.text isEqualToString:@""]  && ![self.textNewView.text isEqualToString:@""]) {
         self.model.author =self.authorNewView.text;
@@ -93,6 +96,7 @@
         if (![self.imageNewView.image isEqual:img]) {
             self.model.photo.image = self.imageNewView.image;
         }
+        return YES;
         
     }else{
         
@@ -107,7 +111,9 @@
         [alert addAction:accion];
         [self presentViewController:alert animated:YES completion:nil];
         
+        
         [self.model.managedObjectContext deleteObject:self.model];
+        return NO;
         
     }
     
@@ -235,6 +241,40 @@
                                                           389);
                          
                      }];
+    
+}
+
+#pragma mark - parse
+-(void)pushNewNoticeToParse:(BOOL) validation{
+    
+    if (validation) {
+        PFObject *p = [PFObject objectWithClassName:NOTICIAS];
+        p[TITULO] = self.model.titleNew;
+        p[AUTOR] = [PFUser currentUser];
+        p[TEXTO] = self.model.textNew;
+        p[STATE] = self.model.state;
+        p[LOCALIACION] = [[PFGeoPoint alloc] init];
+        [p saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+            if (!error) {
+                // NSLog(@"%@", error);
+                PFFile *fileBlob = [PFFile fileWithName:[NSString stringWithFormat:@"img_%@.jpg", self.model.titleNew]
+                                                   data:UIImageJPEGRepresentation(self.model.photo.image, 0.9)];
+                [fileBlob saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+                    if (succeeded) {
+                        [p setObject:fileBlob forKey:FOTO];
+                        [p saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+                            NSLog(@"Subido");
+                        }];
+                    }
+                }progressBlock:^(int percentValue){
+                    NSLog(@"Subiendo %d", percentValue);
+                }];
+            }
+            
+        }];
+
+    }
+
     
 }
 

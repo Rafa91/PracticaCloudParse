@@ -20,8 +20,8 @@
         <relationship name="noticia" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="News" inverseName="photo" inverseEntity="News" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Location" positionX="-36" positionY="27" width="128" height="105"/>
         <element name="News" positionX="-63" positionY="-18" width="128" height="150"/>
         <element name="Photo" positionX="-54" positionY="18" width="128" height="75"/>
-        <element name="Location" positionX="-36" positionY="27" width="128" height="105"/>
     </elements>
 </model>

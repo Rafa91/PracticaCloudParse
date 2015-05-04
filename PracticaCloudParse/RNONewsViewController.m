@@ -12,8 +12,11 @@
 #import "RNONewViewController.h"
 #import "RNOAddNewViewController.h"
 #import "RNOMyNewsViewController.h"
+#import <Parse/Parse.h>
+#import <ParseUI/ParseUI.h>
+#import "RNOKeys.h"
 
-@interface RNONewsViewController ()
+@interface RNONewsViewController ()<PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
 @end
 
@@ -24,6 +27,20 @@
     // Do any additional setup after loading the view.
     
     [self addNewButton];
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Descargando noticias nuevas"
+                                                                          attributes:@{NSFontAttributeName:[UIFont italicSystemFontOfSize:14]}];
+    [self.refreshControl addTarget:self
+                            action:@selector(refreshByPull:)
+                  forControlEvents:UIControlEventValueChanged];
+    
+}
+
+-(void) viewDidAppear:(BOOL)animated{
+    
+    [super viewDidAppear:animated];
+    [self loginWithParse];
+    
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView
@@ -73,11 +90,11 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 -(void) addNewButton{
     
-    UIBarButtonItem *add = [[UIBarButtonItem alloc]
-                            initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                            target:self action:@selector(addNew:)];
+    UIBarButtonItem *logOutButton = [[UIBarButtonItem alloc]
+                            initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+                            target:self action:@selector(logOutAction:)];
     
-    self.navigationItem.rightBarButtonItem = add;
+    self.navigationItem.rightBarButtonItem = logOutButton;
     
     UIBarButtonItem *myNews = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks
                                                                             target:self
@@ -86,20 +103,12 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
 }
 
--(void) addNew:(id) sender{
+-(void) logOutAction:(id) sender{
     
-    RNONews *n = [RNONews newWithTitle:nil
-                                author:@"Rafa"
-                                  text:nil
-                                 state:3
-                                 photo:[RNOPhoto photoWithImageData:nil
-                                                            context:self.fetchedResultsController.managedObjectContext]
-                              location:nil
-                               context:self.fetchedResultsController.managedObjectContext];
-    
-    [self.navigationController pushViewController:[[RNOAddNewViewController alloc] initWithModel:n]
-                                         animated:YES];
-    
+    if ([PFUser currentUser]) {
+        [PFUser logOut];
+        [self loginWithParse];
+    }
 }
 
 -(void)viewMyNews:(id) sender{
@@ -121,6 +130,166 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
    [self.navigationController pushViewController:[[RNOMyNewsViewController alloc] initWithFetchedResultsController:fc
                                                                                                              style:UITableViewStylePlain]
                                         animated:YES];
+    
+}
+
+#pragma mark - Parse
+
+-(void) loginWithParse{
+    
+    if (![PFUser currentUser]) {
+        PFLogInViewController *pfVC = [[PFLogInViewController alloc] init];
+        pfVC.delegate = self;
+        PFSignUpViewController *suVC = [[PFSignUpViewController alloc]init];
+        suVC.delegate = self;
+        
+        [pfVC setSignUpController:suVC];
+        
+        [self presentViewController:pfVC
+                           animated:YES
+                         completion:nil];
+    }
+    
+}
+
+-(void) logInViewController:(PFLogInViewController * __nonnull)logInController
+               didLogInUser:(PFUser * __nonnull)user{
+    
+    NSLog(@"el usuario logado es: %@", [user username]);
+    [self dismissViewControllerAnimated:YES
+                             completion:nil];
+    
+}
+
+-(void) logInViewController:(PFLogInViewController * __nonnull)logInController
+    didFailToLogInWithError:(nullable NSError *)error{
+    
+    NSLog(@"%@", error);
+    
+}
+
+-(void)signUpViewController:(PFSignUpViewController * __nonnull)signUpController
+              didSignUpUser:(PFUser * __nonnull)user{
+    
+    NSLog(@"el usuario logado es: %@", [user username]);
+    [PFUser logInWithUsername:user.username password:user.password];
+    [self dismissViewControllerAnimated:YES
+                             completion:nil];
+    
+}
+
+-(void)signUpViewController:(PFSignUpViewController * __nonnull)signUpController
+   didFailToSignUpWithError:(nullable NSError *)error{
+    
+    NSLog(@"%@", error);
+    
+}
+
+-(void)downloadDataFromParseWith: (NSDate *)aDate{
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"News"];
+    [query whereKey:STATE equalTo:[NSNumber numberWithInt:1]];
+    if (aDate) {
+        [query whereKey:DATE   greaterThanOrEqualTo:aDate];
+    }
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+        
+        if (!error) {
+            //cuando lo tengo todo me voy a primer plano
+            dispatch_async(dispatch_get_main_queue(), ^{
+            [self addToDataBase:objects];
+            });
+        }else{
+            NSLog(@"%@", error);
+        }
+        
+    }];
+    
+}
+
+-(void)addToDataBase:(NSArray *)objects{
+    
+    for (PFObject *notice in objects) {
+        
+        NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[RNONews entityName]];
+        req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:RNONewsAttributes.creationDate
+                                                              ascending:YES]];
+        req.predicate = [NSPredicate predicateWithFormat:@"titleNew == %@", notice[TITULO] ];
+        NSError *err;
+        NSArray *res = [self.fetchedResultsController.managedObjectContext executeFetchRequest:req
+                                                                                         error:&err];
+        
+        if ([res count] == 0) {
+            // no tenemos ninguna noticia
+            RNONews *n = [RNONews newWithTitle:notice[TITULO]
+                                        author:nil
+                                          text:notice[TEXTO]
+                                         state:[notice[STATE] doubleValue]
+                                         photo:nil
+                                      location:nil
+                                       context:self.fetchedResultsController.managedObjectContext];
+            
+            if ([notice objectForKey:FOTO]) {
+                PFFile *f = notice[FOTO];
+                [f getDataInBackgroundWithBlock:^(NSData *result, NSError *error){
+                    if (!error) {
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            n.photo = [RNOPhoto photoWithImageData:result
+                                                           context:self.fetchedResultsController.managedObjectContext];
+                        });
+                    }
+                }];
+                
+            }
+            
+            PFQuery *query = [PFUser query];
+            [query whereKey:PARSEID equalTo:[notice[AUTOR] objectId]];
+            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    n.author = [[objects lastObject] username];
+                });
+                
+            }];
+        }else{
+            RNONews *n = [res lastObject];
+            n.state = notice [STATE];
+        }
+            
+
+            
+        
+        
+    }
+
+   [self.refreshControl endRefreshing];
+}
+
+#pragma mark - utils
+-(void) refreshByPull: (UITableView *) aTableView{
+    
+    [self.refreshControl beginRefreshing];
+    [self downloadDataFromParseWith:[self lastUpdate]];
+    
+    
+}
+
+-(NSDate *) lastUpdate{
+    
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[RNONews entityName]];
+    req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:RNONewsAttributes.creationDate
+                                                          ascending:YES]];
+    NSError *err;
+    NSArray *res = [self.fetchedResultsController.managedObjectContext executeFetchRequest:req
+                                                                                     error:&err];
+    
+    if ([res count] == 0) {
+        // no tenemos ninguna noticia
+        return nil;
+    }else{
+        return [[res lastObject] creationDate];
+    }
+    
     
 }
 

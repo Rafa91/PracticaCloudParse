@@ -1,0 +1,14 @@
+{
+  "global": {
+    "parseVersion": "1.4.2"
+  },
+  "applications": {
+    "PracticaCloudParse": {
+      "applicationId": "KyoPmdcZNb3XQ0adw9nu6FWCYAqfTnDQMs4QMdgW",
+      "masterKey": "cSsyk5XvWAtzXVbwUV1cdYXUqtbLC8ogRsLKu9BE"
+    },
+    "_default": {
+      "link": "PracticaCloudParse"
+    }
+  }
+}

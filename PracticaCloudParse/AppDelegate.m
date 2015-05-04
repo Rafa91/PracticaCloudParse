@@ -11,6 +11,9 @@
 #import "RNOPhoto.h"
 #import "RNONews.h"
 #import "RNONewsViewController.h"
+#import <Parse/Parse.h>
+#import <ParseUI/ParseUI.h>
+#import "RNOKeys.h"
 
 @interface AppDelegate ()
 
@@ -25,8 +28,7 @@
     // Override point for customization after application launch.
     
     self.model = [AGTCoreDataStack coreDataStackWithModelName:@"Model"];
-    
-    //[self addDummyData];
+    [self warmupParse];
     
     NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[RNONews entityName]];
     req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:RNONewsAttributes.creationDate
@@ -88,9 +90,11 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+
+//estos datos no se suben al server cuidado!!!!!
 -(void) addDummyData{
     
-    //[self.model zapAllData];
+    [self.model zapAllData];
     
     //genero fotos para agregar noticias dummys
     RNOPhoto *caminante = [RNOPhoto photoWithImageData: UIImageJPEGRepresentation([UIImage imageNamed:@"caminante.jpg"], 0.9)
@@ -162,6 +166,15 @@
         }
         
     }];
+    
+}
+
+#pragma mark - Parse
+
+-(void) warmupParse{
+    
+    [Parse setApplicationId:PARSE_APP_KEY
+                  clientKey:PARSE_CLIENT_KEY];
     
 }
 
