@@ -11,6 +11,7 @@
 #import "RNOPhoto.h"
 #import "RNONewViewController.h"
 #import "RNOAddNewViewController.h"
+#import <Parse/Parse.h>
 
 @interface RNOMyNewsViewController ()
 
@@ -72,6 +73,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //Comprobar si está en proceso de publicación
     if (n.stateValue == 1) {
         RNONewViewController *nVC = [[RNONewViewController alloc]initWithModel:n];
+        NSDictionary *type = @{@"type": [NSString stringWithFormat:@"%@", [self class]]};
+        // Envio el tipo de controlador al que accedo
+        [PFAnalytics trackEvent:@"controller" dimensions:type];
         // Hacer un push
         [self.navigationController pushViewController:nVC
                                              animated:YES];
@@ -79,7 +83,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
         
         // Crear un contorlador de noticia
         RNOAddNewViewController *nVC = [[RNOAddNewViewController alloc] initWithModel:n];
-        
+        NSDictionary *type = @{@"type": [NSString stringWithFormat:@"%@", [self class]]};
+        // Envio el tipo de controlador al que accedo
+        [PFAnalytics trackEvent:@"controller" dimensions:type];
         // Hacer un push
         [self.navigationController pushViewController:nVC
                                              animated:YES];
@@ -107,6 +113,10 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
                                                             context:self.fetchedResultsController.managedObjectContext]
                               location:nil
                                context:self.fetchedResultsController.managedObjectContext];
+    
+    NSDictionary *type = @{@"type": [NSString stringWithFormat:@"%@", [self class]]};
+    // Envio el tipo de controlador al que accedo
+    [PFAnalytics trackEvent:@"controller" dimensions:type];
     
     [self.navigationController pushViewController:[[RNOAddNewViewController alloc] initWithModel:n]
                                          animated:YES];

@@ -246,7 +246,9 @@
 
 #pragma mark - parse
 -(void)pushNewNoticeToParse:(BOOL) validation{
-    
+    NSDictionary *type = @{@"type": [NSString stringWithFormat:@"%@", [self class]]};
+    // Envio el tipo de controlador al que accedo
+    [PFAnalytics trackEvent:@"controller" dimensions:type];
     if (validation) {
         PFObject *p = [PFObject objectWithClassName:NOTICIAS];
         p[TITULO] = self.model.titleNew;

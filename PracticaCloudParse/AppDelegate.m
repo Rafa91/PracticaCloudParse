@@ -29,6 +29,7 @@
     
     self.model = [AGTCoreDataStack coreDataStackWithModelName:@"Model"];
     [self warmupParse];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
     NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[RNONews entityName]];
     req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:RNONewsAttributes.creationDate
@@ -175,6 +176,7 @@
     
     [Parse setApplicationId:PARSE_APP_KEY
                   clientKey:PARSE_CLIENT_KEY];
+    
     
 }
 

@@ -34,6 +34,10 @@
                             action:@selector(refreshByPull:)
                   forControlEvents:UIControlEventValueChanged];
     
+    NSDictionary *type = @{@"type": [NSString stringWithFormat:@"%@", [self class]]};
+    // Envio el tipo de controlador al que accedo
+    [PFAnalytics trackEvent:@"controller" dimensions:type];
+    
 }
 
 -(void) viewDidAppear:(BOOL)animated{
@@ -81,9 +85,14 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     // Crear un contorlador de noticia
     RNONewViewController *nVC = [[RNONewViewController alloc] initWithModel:n];
     
+    NSDictionary *type = @{@"type": [NSString stringWithFormat:@"%@", [self class]]};
+    // Envio el tipo de controlador al que accedo
+    [PFAnalytics trackEvent:@"controller" dimensions:type];
+    
     // Hacer un push
     [self.navigationController pushViewController:nVC
                                          animated:YES];
+
     
 }
 
@@ -107,6 +116,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if ([PFUser currentUser]) {
         [PFUser logOut];
+        [PFAnalytics trackEvent:@"logOut" dimensions:nil];
         [self loginWithParse];
     }
 }
@@ -126,10 +136,14 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
                                                                         managedObjectContext:self.fetchedResultsController.managedObjectContext
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
+    NSDictionary *type = @{@"type": [NSString stringWithFormat:@"%@", [self class]]};
+    // Envio el tipo de controlador al que accedo
+    [PFAnalytics trackEvent:@"controller" dimensions:type];
     
    [self.navigationController pushViewController:[[RNOMyNewsViewController alloc] initWithFetchedResultsController:fc
                                                                                                              style:UITableViewStylePlain]
                                         animated:YES];
+    
     
 }
 
@@ -156,6 +170,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
                didLogInUser:(PFUser * __nonnull)user{
     
     NSLog(@"el usuario logado es: %@", [user username]);
+    [PFAnalytics trackEvent:@"logIn" dimensions:nil];
     [self dismissViewControllerAnimated:YES
                              completion:nil];
     
@@ -208,6 +223,11 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 }
 
 -(void)addToDataBase:(NSArray *)objects{
+    
+    NSDictionary *type = @{@"numberOfObjects": [NSString stringWithFormat:@"%lu", (unsigned long)[objects count]],
+                           @"date": [NSString stringWithFormat:@"%@", [NSDate date]]};
+    // Envio la cantidad de objetos que descargo cada vez
+    [PFAnalytics trackEvent:@"download" dimensions:type];
     
     for (PFObject *notice in objects) {
         
